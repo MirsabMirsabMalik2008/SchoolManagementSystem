@@ -28,7 +28,8 @@ export class AddStudentsComponent implements OnInit {
       'admissionDate': new FormControl(null),
       'address': new FormControl(null, Validators.required),
       'dateOfBirth': new FormControl(null),
-      'file': new FormControl('')
+      'file': new FormControl(''),
+      'fees': new FormControl(null, Validators.required)
     });
   }
 

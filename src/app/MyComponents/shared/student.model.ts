@@ -8,4 +8,5 @@ export class StudentsModel {
     admissionDate: Date | undefined;
     dateOfBirth: Date | undefined;
     file: string = '';
+    fees: number = 0;
 }

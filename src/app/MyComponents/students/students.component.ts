@@ -10,14 +10,14 @@ import { StudentsModel } from '../shared/student.model';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
+  filteredString: any;
   imgPath: string = '';
   Studentaddress: string = '';
-  constructor(public SService: ServerService, private router: Router) { }
+  constructor(public SService: ServerService) { }
 
   ngOnInit() {
     this.SService.GetStudent();
   }
-  private Students: StudentsModel[] = [];
 
   onClick(file: any) {
     this.imgPath = file;
@@ -29,5 +29,9 @@ export class StudentsComponent implements OnInit {
 
   onDelete(id: number) {
     this.SService.DeleteStudent(id);
+  }
+
+  FeesD(id: any) {
+
   }
 }

@@ -9,12 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddStudentsComponent } from './MyComponents/add-students/add-students.component';
 import { HeaderComponent } from './MyComponents/header/header.component';
-import { ShortenPipe } from './MyComponents/shared/shorten.pipe';
+import { ShortenPipe } from './MyComponents/Pipes/shorten.pipe';
 import { StudentsComponent } from './MyComponents/students/students.component';
 import { ServerService } from './MyComponents/shared/server.service';
 import { UploadComponent } from './MyComponents/upload/upload.component';
 import { NgxPrintModule } from 'ngx-print';
 import { FeesComponent } from './MyComponents/fees/fees.component';
+import { FilterPipe } from './MyComponents/Pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FeesComponent } from './MyComponents/fees/fees.component';
     StudentsComponent,
     ShortenPipe,
     UploadComponent,
-    FeesComponent
+    FeesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
