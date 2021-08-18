@@ -9,13 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddStudentsComponent } from './MyComponents/add-students/add-students.component';
 import { HeaderComponent } from './MyComponents/header/header.component';
-import { ShortenPipe } from './MyComponents/Pipes/shorten.pipe';
 import { StudentsComponent } from './MyComponents/students/students.component';
 import { ServerService } from './MyComponents/shared/server.service';
 import { UploadComponent } from './MyComponents/upload/upload.component';
 import { NgxPrintModule } from 'ngx-print';
-import { FeesComponent } from './MyComponents/fees/fees.component';
 import { FilterPipe } from './MyComponents/Pipes/filter.pipe';
+import { Fees } from './MyComponents/shared/Fees.model';
+import { FeesComponent } from './MyComponents/fees/fees.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +23,9 @@ import { FilterPipe } from './MyComponents/Pipes/filter.pipe';
     AddStudentsComponent,
     HeaderComponent,
     StudentsComponent,
-    ShortenPipe,
     UploadComponent,
     FeesComponent,
-    FilterPipe
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +37,7 @@ import { FilterPipe } from './MyComponents/Pipes/filter.pipe';
     HttpClientModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ServerService],
+  providers: [ServerService, Fees],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Fees } from '../shared/Fees.model';
 import { ServerService } from '../shared/server.service';
 
 @Component({
   selector: 'app-fees',
-  templateUrl: './fees.component.html',
-  styleUrls: ['./fees.component.css']
+  templateUrl: './fees.component.html'
 })
 export class FeesComponent implements OnInit {
   FMForm: FormGroup;
-  constructor(public SService: ServerService, private toastr: ToastrService) { }
+
+  constructor(public SService: ServerService, private toastr: ToastrService, public FService: Fees) { }
 
   ngOnInit(): void {
     this.FMForm = new FormGroup({
@@ -19,7 +20,7 @@ export class FeesComponent implements OnInit {
       'dateAndMonth': new FormControl(null, Validators.required),
       'amount': new FormControl(null, Validators.required),
     });
-     this.SService.GetStudent();
+    this.SService.GetStudent();
   }
 
   onSubmit(f: any) {

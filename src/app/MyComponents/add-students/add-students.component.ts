@@ -8,8 +8,7 @@ import { ServerService } from '../shared/server.service';
 
 @Component({
   selector: 'app-add-students',
-  templateUrl: './add-students.component.html',
-  styleUrls: ['./add-students.component.css']
+  templateUrl: './add-students.component.html'
 })
 export class AddStudentsComponent implements OnInit {
   ASForm: FormGroup;

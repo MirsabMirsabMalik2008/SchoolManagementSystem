@@ -5,11 +5,13 @@ import { StudentsModel } from './student.model';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Fees } from './Fees.model';
 
 
 @Injectable()
 export class ServerService {
     list: StudentsModel[];
+    Flist: Fees[];
 
     readonly rootURL = 'https://localhost:44377/api/Students/';
     constructor(private HttpClient: HttpClient, private router: Router, private toastr: ToastrService) { }
@@ -47,6 +49,12 @@ export class ServerService {
             headers: new HttpHeaders ({
                 'Content-Type': 'application/json'
             })
+        })
+    }
+
+    GetFees() {
+        this.HttpClient.get('https://localhost:44377/api/Fees').toPromise().then(res => {
+            this.Flist = res as Fees[];
         })
     }
 }

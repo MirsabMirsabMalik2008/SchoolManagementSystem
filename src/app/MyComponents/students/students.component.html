@@ -4,11 +4,11 @@
 <br>
 <div class="container-fluid mb-4">
   <div class="row g-3 align-items-center">
-    <div class="col-sm-2">
+    <div class="col-sm-1">
       <label class="col-form-label">Search</label>
     </div>
-    <div class="col-sm-4">
-      <input class="form-control" [(ngModel)]="filteredString">
+    <div class="col-sm-2">
+      <input class="form-control" type="text" [(ngModel)]="filteredString">
     </div>
   </div>
 </div>
@@ -24,11 +24,10 @@
       <th scope="col">DateOfBirth</th>
       <th scope="col">Picture</th>
       <th scope="col">Delete</th>
-      <th scope="col">Fees Details</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let student of SService.list | filter:filteredString">
+    <tr *ngFor="let student of SService.list | filter: filteredString">
       <th>{{ student.studentName }}</th>
       <th>{{ student.class }}</th>
       <th>{{ student.mobileNumber }}</th>

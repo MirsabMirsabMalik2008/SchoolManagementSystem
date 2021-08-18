@@ -1,20 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { StudentsModel } from '../shared/student.model';
 
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any, filteredString: any) {
-    if(value.length === 0 || filteredString === '') {
-      return value;
+  transform(students: StudentsModel[], searchValue: any): StudentsModel[] {
+    if(!students || !searchValue) {
+      return students;
     }
-    const Filter = [];
-    for(const s of value) {
-      if(s['name'] === filteredString) {
-        Filter.push(s);
-      }
-    }
-    return Filter;
+    return students.filter(students =>
+       students.studentName.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
   }
 }

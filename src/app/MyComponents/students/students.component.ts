@@ -1,16 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AddStudentsComponent } from '../add-students/add-students.component';
+import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../shared/server.service';
-import { StudentsModel } from '../shared/student.model';
 
 @Component({
   selector: 'app-students',
-  templateUrl: './students.component.html',
-  styleUrls: ['./students.component.css']
+  templateUrl: './students.component.html'
 })
 export class StudentsComponent implements OnInit {
-  filteredString: any;
+  filteredString = '';
   imgPath: string = '';
   Studentaddress: string = '';
   constructor(public SService: ServerService) { }
@@ -29,9 +25,5 @@ export class StudentsComponent implements OnInit {
 
   onDelete(id: number) {
     this.SService.DeleteStudent(id);
-  }
-
-  FeesD(id: any) {
-
   }
 }
