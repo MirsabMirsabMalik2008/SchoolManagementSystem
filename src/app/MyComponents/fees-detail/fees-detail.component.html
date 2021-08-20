@@ -1,0 +1,30 @@
+<app-start></app-start>
+<br>
+<h1 class="text-center">Students</h1>
+<br>
+<div class="container-fluid mb-4">
+  <div class="row g-3 align-items-center">
+    <div class="col-sm-1">
+      <label class="col-form-label">Search</label>
+    </div>
+    <div class="col-sm-2">
+      <input class="form-control" type="text" [(ngModel)]="filteredString">
+    </div>
+  </div>
+</div>
+<table class="table table-lg table-hover">
+  <thead>
+    <tr>
+      <th scope="col">StudentName</th>
+      <th scope="col">DateAndMonth</th>
+      <th scope="col">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fees of SService.Flist | filterflist: filteredString">
+     <th>{{ fees.studentName }}</th>
+     <th>{{ fees.dateAndMonth | date}}</th>
+     <th>{{ fees.amount }}</th>
+    </tr>
+  </tbody>
+</table>

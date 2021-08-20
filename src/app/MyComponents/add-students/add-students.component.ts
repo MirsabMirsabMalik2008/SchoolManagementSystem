@@ -21,18 +21,54 @@ export class AddStudentsComponent implements OnInit {
     this.ASForm = new FormGroup({
       'id': new FormControl(null),
       'studentName': new FormControl(null, Validators.required),
-      'class': new FormControl(null, Validators.required),
+      'class': new FormControl('Please select a Value.', Validators.required),
       'mobileNumber': new FormControl(null, Validators.required),
       'gender': new FormControl('Male', Validators.required),
       'admissionDate': new FormControl(null),
       'address': new FormControl(null, Validators.required),
       'dateOfBirth': new FormControl(null),
       'file': new FormControl(''),
-      'fees': new FormControl(null, Validators.required)
+      'fees': new FormControl(null)
     });
   }
 
   onSubmit(f: any) {
+    if(this.ASForm.controls['class'].value === 'PlayGroup') {
+      this.ASForm.controls['fees'].setValue(2000);
+    }
+    else if(this.ASForm.controls['class'].value === 'Nursery') {
+      this.ASForm.controls['fees'].setValue(2000);
+    }
+    else if(this.ASForm.controls['class'].value === 'KinderGarten') {
+      this.ASForm.controls['fees'].setValue(2000);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassOne') {
+      this.ASForm.controls['fees'].setValue(2500);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassTwo') {
+      this.ASForm.controls['fees'].setValue(2500);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassThree') {
+      this.ASForm.controls['fees'].setValue(2500);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassFour') {
+      this.ASForm.controls['fees'].setValue(2500);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassFive') {
+      this.ASForm.controls['fees'].setValue(2500);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassSix') {
+      this.ASForm.controls['fees'].setValue(2800);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassSeven') {
+      this.ASForm.controls['fees'].setValue(2800);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassNineJ') {
+      this.ASForm.controls['fees'].setValue(3000);
+    }
+    else if(this.ASForm.controls['class'].value === 'ClassNineS') {
+      this.ASForm.controls['fees'].setValue(3000);
+    }
     this.ASForm.controls['file'].setValue('https://localhost:44377/' + this.response.dbPath);
     this.SService.PostStudent(f.value).subscribe(res => {
       this.router.navigate(['/Students']);

@@ -13,9 +13,11 @@ import { ServerService } from './MyComponents/shared/server.service';
 import { UploadComponent } from './MyComponents/upload/upload.component';
 import { NgxPrintModule } from 'ngx-print';
 import { FilterPipe } from './MyComponents/Pipes/filter.pipe';
-import { Fees } from './MyComponents/shared/Fees.model';
 import { FeesComponent } from './MyComponents/fees/fees.component';
 import { StartComponent } from './MyComponents/start/start.component';
+import { FeesDetailComponent } from './MyComponents/fees-detail/fees-detail.component';
+import { FilterflistPipe } from './MyComponents/Pipes/filterflist.pipe';
+import { StudentsModel } from './MyComponents/shared/student.model';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { StartComponent } from './MyComponents/start/start.component';
     FeesComponent,
     FilterPipe,
     StartComponent,
+    FeesDetailComponent,
+    FilterflistPipe
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { StartComponent } from './MyComponents/start/start.component';
     HttpClientModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ServerService, Fees],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 export class StudentsModel {
     id?: number = 0;
     studentName: string = '';
-    class: number = 0;
+    class: string = '';
     mobileNumber: number = 0;
     address: string = '';
     gender: string = '';
