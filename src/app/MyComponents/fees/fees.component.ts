@@ -10,6 +10,7 @@ import { ServerService } from '../shared/server.service';
 })
 export class FeesComponent implements OnInit {
   FMForm: FormGroup;
+  MFees: number;
 
   constructor(public SService: ServerService, private toastr: ToastrService, private router: Router) { }
 
@@ -20,7 +21,8 @@ export class FeesComponent implements OnInit {
       'dateAndMonth': new FormControl(null, Validators.required),
       'amount': new FormControl(null, Validators.required),
       'class': new FormControl('Please Select a Class.', Validators.required),
-      'fees': new FormControl(null)
+      'fees': new FormControl(null),
+      'MFees': new FormControl(null),
     });
     this.SService.GetStudent();
   }
@@ -72,5 +74,7 @@ export class FeesComponent implements OnInit {
     else if(this.FMForm.controls['class'].value === 'ClassNineS') {
       this.FMForm.controls['fees'].setValue(3000);
     }
+    this.MFees = this.FMForm.controls['fees'].value - this.FMForm.controls['amount'].value;
+    this.FMForm.controls['MFees'].setValue(this.MFees);
   }
 }
