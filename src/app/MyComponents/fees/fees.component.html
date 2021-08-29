@@ -1,0 +1,90 @@
+<app-start></app-start>
+<br>
+<h1 class="text-center">Fees Collection</h1>
+<br>
+<div class="container">
+    <form [formGroup]="FMForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+        <input hidden formControlName="id">
+        <div class="container-fluid mb-4">
+            <div class="row g-3 align-items-center">
+                <div class="col-sm-2">
+                    <label class="col-form-label">Student Name<strong class="red"> *</strong></label>
+                  </div>
+                  <div class="col-sm-4">
+                    <select class="form-control" formControlName="studentName">  
+                        <option>Please select a Student.</option>
+                        <option *ngFor="let StudentN of SService.lis">
+                                {{ StudentN.StudentName }}
+                        </option>
+                    </select>
+                  </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mb-4">
+            <div class="row g-3 align-items-center">
+                <div class="col-sm-2">
+                    <label class="col-form-label">Student Class<strong class="red"> *</strong></label>
+                  </div>
+                  <div class="col-sm-4">
+                    <select class="form-control" formControlName="class" (change)="onChange()">  
+                        <option>Please select a Class.</option>
+                        <option *ngFor="let StudentN of SService.list">
+                                {{ StudentN.Class }}
+                        </option>
+                    </select>
+                  </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mb-4">
+            <div class="row g-3 align-items-center">
+                <div class="col-sm-2">
+                    <label class="col-form-label">DD/MM/YYYY<strong class="red"> *</strong></label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" formControlName="dateAndMonth">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mb-4">
+            <div class="row g-3 align-items-center">
+                <div class="col-sm-2">
+                    <label class="col-form-label">Amount<strong class="red"> *</strong></label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" formControlName="amount">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mb-4">
+            <div class="row g-3 align-items-center">
+                <div class="col-sm-2">
+                    <label class="col-form-label">Actual Amount</label>
+                </div>
+                <div class="col-sm-4">
+                    <fieldset disabled>
+                        <input class="form-control" formControlName="fees">
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mb-4">
+            <div class="row g-3 align-items-center">
+                <div class="col-sm-2">
+                    <label class="col-form-label">Remaining Amount</label>
+                </div>
+                <div class="col-sm-4">
+                    <fieldset disabled>
+                        <input class="form-control" formControlName="MFees">
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+</div>

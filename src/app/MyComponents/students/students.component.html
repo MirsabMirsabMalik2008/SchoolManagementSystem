@@ -1,0 +1,13 @@
+<app-start></app-start>
+<br>
+<div class="row">
+  <div *ngFor="let student of SService.list" class="col-2">
+    <div class="m-round card-body-style">
+      <img [src]="student.File" class="img-circle" style="width:80px;height:80px;">
+      <br><span>{{ student.id }}</span><br><b>{{ student.StudentName }}</b><br>
+      <hr>
+      <button class="btn btn-sm btn-success" (click)="Details(student.id!)"><i class="fas fa-id-card"></i></button> |
+      <button class="btn btn-sm btn-danger" (click)="onDelete(student.id!)"><i class="fas fa-trash"></i></button>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<app-start></app-start>
+<br>
+<h1 class="text-center">Add Students</h1>
+<br>
+<div class="container">
+  <form [formGroup]="ASForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <input hidden formControlName="id">
+
+      <div class="container-fluid mb-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-sm-2">
+            <label class="col-form-label">StudentName<strong class="red"> *</strong></label>
+          </div>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" formControlName="studentName" placeholder="e.g. Ibrahim">
+          </div>
+        </div>
+      </div>
+  
+      <div class="container-fluid mb-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-sm-2">
+            <label class="col-form-label">Class<strong class="red"> *</strong></label>
+          </div>
+          <div class="col-sm-4">
+            <select class="form-select" formControlName="class">
+              <option selected>Please select a Value.</option>
+              <option>PlayGroup</option>
+              <option>Nursery</option>
+              <option>KinderGarten</option>
+              <option>ClassOne</option>
+              <option>ClassTwo</option>
+              <option>ClassThree</option>
+              <option>ClassFour</option>
+              <option>ClassFive</option>
+              <option>ClassSix</option>
+              <option>ClassSeven</option>
+              <option>ClassNineJ</option>
+              <option>ClassNineS</option>
+            </select>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container-fluid mb-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-sm-2">
+            <label class="col-form-label">Admission Date<strong class="red"> *</strong></label>
+          </div>
+          <div class="col-sm-4">
+            <input type="date" class="form-control" formControlName="admissionDate">
+          </div>
+        </div>
+      </div>
+  
+      <div class="container-fluid mb-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-sm-2">
+            <label class="col-form-label">MobileNumber<strong class="red"> *</strong></label>
+          </div>
+          <div class="col-sm-4">
+            <input type="number" class="form-control" formControlName="mobileNumber" placeholder="e.g. xxxx-xxxx-xxxx">
+          </div>
+        </div>
+      </div>
+  
+      <div class="container-fluid mb-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-sm-2">
+            <label class="col-form-label">DateOfBirth<strong class="red"> *</strong></label>
+          </div>
+          <div class="col-sm-4">
+            <input type="date" class="form-control" formControlName="dateOfBirth">
+          </div>
+        </div>
+      </div>
+
+      <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>  
+  
+      <div class="container-fluid mb-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-sm-2">
+            <label class="col-form-label">Gender<strong class="red"> *</strong></label>
+          </div>
+          <div class="col-sm-4">
+            <select class="form-select" formControlName="gender">
+              <option selected>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container-fluid mb-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-sm-2">
+            <label class="col-form-label">Address<strong class="red"> *</strong></label>
+          </div>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" formControlName="address">
+          </div>
+        </div>
+      </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!ASForm.valid">Save</button>
+  </form>
+</div>
